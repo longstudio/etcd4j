@@ -51,7 +51,7 @@ ext {
 
 repositories {
     mavenLocal()
-//    mavenCentral()
+    mavenCentral()
 }
 
 configurations {
