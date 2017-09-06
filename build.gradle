@@ -15,7 +15,7 @@ compileJava {
     targetCompatibility = 1.7
 }
 
-group = 'com.youzan.platform'
+group = 'org.mousio'
 
 ext {
     isSnapshot = version.endsWith("-SNAPSHOT")
@@ -25,8 +25,8 @@ ext {
     ciTasks    = (isRelease || isPR) ? ['clean', 'test'] : ['clean', 'dockerTest', 'uploadArchives']
 
     mavenDeployUrl = isSnapshot ?
-        'http://maven.qima-inc.com/content/repositories/snapshots/' :
-        'http://maven.qima-inc.com/content/repositories/releases/'
+        'https://oss.sonatype.org/content/repositories/snapshots/' :
+        'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
 
     versions = [
         netty   : '4.1.13.Final',
