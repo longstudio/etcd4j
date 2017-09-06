@@ -25,8 +25,8 @@ ext {
     ciTasks    = (isRelease || isPR) ? ['clean', 'test'] : ['clean', 'dockerTest', 'uploadArchives']
 
     mavenDeployUrl = isSnapshot ?
-        'https://oss.sonatype.org/content/repositories/snapshots/' :
-        'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
+        'http://maven.qima-inc.com/content/repositories/snapshots/' :
+        'http://maven.qima-inc.com/content/repositories/releases/'
 
     versions = [
         netty   : '4.1.13.Final',
@@ -51,7 +51,7 @@ ext {
 
 repositories {
     mavenLocal()
-    mavenCentral()
+//    mavenCentral()
 }
 
 configurations {
@@ -200,6 +200,7 @@ uploadArchives {
 }
 
 release {
+    failOnCommitNeeded = false
     tagTemplate = 'release-${version}'
 }
 
